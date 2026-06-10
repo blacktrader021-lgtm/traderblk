@@ -1,0 +1,1582 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Traderblk | Sites Profissionais, Cloud e Presença Digital</title>
+<meta name="description" content="Transformamos negócios através de estratégias digitais.">
+<link rel="icon" type="image/svg+xml" href="/logos/logo1.svg">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ─── TOKENS ─────────────────────────────────────────────── */
+:root{
+  --bg:#050508;
+  --bg1:#0A0A10;
+  --bg2:#0F0F18;
+  --bg3:#16161F;
+  --bg4:#1C1C28;
+  --surface:#1A1A26;
+  --surface2:#222232;
+  --border:rgba(255,255,255,.07);
+  --border2:rgba(255,255,255,.12);
+  --white:#FAFAFA;
+  --white2:rgba(250,250,250,.7);
+  --white3:rgba(250,250,250,.35);
+  --white4:rgba(250,250,250,.12);
+  --blue:#3B82F6;
+  --blue2:#60A5FA;
+  --blue3:#93C5FD;
+  --blue-glow:rgba(59,130,246,.15);
+  --blue-glow2:rgba(59,130,246,.08);
+  --violet:#8B5CF6;
+  --violet-glow:rgba(139,92,246,.12);
+  --cyan:#06B6D4;
+  --green:#10B981;
+  --green2:rgba(16,185,129,.15);
+  --orange:#F59E0B;
+  --red:#EF4444;
+  --radius:8px;
+  --radius2:12px;
+  --radius3:16px;
+}
+/* ─── LIGHT THEME ────────────────────────────────────────── */
+[data-theme="light"]{
+  --bg:#FFFFFF;
+  --bg1:#F7F7F8;
+  --bg2:#FFFFFF;
+  --bg3:#F2F2F4;
+  --bg4:#EBEBED;
+  --surface:#FFFFFF;
+  --surface2:#DDDDE2;
+  --border:rgba(0,0,0,.09);
+  --border2:rgba(0,0,0,.16);
+  --white:#0D0D10;
+  --white2:rgba(13,13,16,.82);
+  --white3:rgba(13,13,16,.62);
+  --white4:rgba(13,13,16,.14);
+  --blue:#2563EB;
+  --blue2:#1D4ED8;
+  --blue3:#1E40AF;
+  --blue-glow:rgba(37,99,235,.08);
+  --blue-glow2:rgba(37,99,235,.04);
+  --violet:#6D28D9;
+  --violet-glow:rgba(109,40,217,.06);
+  --green:#047857;
+  --green2:rgba(4,120,87,.12);
+  --orange:#B45309;
+  --red:#B91C1C;
+}
+
+/* nav */
+[data-theme="light"] nav.scrolled{background:rgba(255,255,255,.92);border-bottom-color:rgba(0,0,0,.09)}
+[data-theme="light"] .nav-link{color:rgba(13,13,16,.55)}
+[data-theme="light"] .nav-link:hover{color:var(--white);background:rgba(0,0,0,.06)}
+[data-theme="light"] .nav-cta-ghost{color:rgba(13,13,16,.7);border-color:rgba(0,0,0,.18)}
+[data-theme="light"] .nav-cta-ghost:hover{border-color:var(--blue);color:var(--blue)}
+[data-theme="light"] .nav-logo-name{color:var(--white)}
+[data-theme="light"] .nav-logo-name span{color:var(--blue)}
+
+/* hero */
+[data-theme="light"] .hero{background:var(--bg)}
+[data-theme="light"] .hero-orb-1{background:rgba(37,99,235,.07)}
+[data-theme="light"] .hero-orb-2{background:rgba(109,40,217,.06)}
+[data-theme="light"] .hero-orb-3{background:rgba(6,182,212,.05)}
+[data-theme="light"] .hero-grid-bg{background-image:linear-gradient(rgba(0,0,0,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.06) 1px,transparent 1px)}
+[data-theme="light"] .hero-badge{background:rgba(37,99,235,.08);border-color:rgba(37,99,235,.2);color:#1D4ED8}
+[data-theme="light"] .hero h1{color:#0D0D10}
+[data-theme="light"] .hero-sub{color:rgba(13,13,16,.62)}
+[data-theme="light"] .hero-trust .trust-item{color:rgba(13,13,16,.55)}
+[data-theme="light"] .trust-sep{background:rgba(0,0,0,.15)}
+[data-theme="light"] .hm{background:#F7F7F8}
+[data-theme="light"] .hm:hover{background:#EFEFEF}
+[data-theme="light"] .hm-lbl{color:rgba(13,13,16,.55)}
+
+/* logos strip */
+[data-theme="light"] .logos-strip{background:#F2F2F4;border-color:rgba(0,0,0,.08)}
+[data-theme="light"] .logos-label{color:rgba(13,13,16,.35)}
+[data-theme="light"] .logo-pill{color:rgba(13,13,16,.45)}
+[data-theme="light"] .logo-pill:hover{color:rgba(13,13,16,.75)}
+
+/* about strip */
+[data-theme="light"] .about-strip{background:#F7F7F8;border-color:rgba(0,0,0,.08)}
+[data-theme="light"] .anc{background:#F7F7F8}
+[data-theme="light"] .anc:hover{background:#EFEFEF}
+[data-theme="light"] .an-lbl{color:rgba(13,13,16,.55)}
+
+/* services */
+[data-theme="light"] .services-bg{background:#F7F7F8}
+[data-theme="light"] .svc{background:#FFFFFF}
+[data-theme="light"] .svc:hover{background:#F7F7F8}
+[data-theme="light"] .svc h3{color:#0D0D10}
+[data-theme="light"] .svc p{color:rgba(13,13,16,.6)}
+[data-theme="light"] .svc-item{color:rgba(13,13,16,.58);border-color:rgba(0,0,0,.08)}
+[data-theme="light"] .svc-index{color:rgba(0,0,0,.07)}
+[data-theme="light"] .svc:hover .svc-index{color:rgba(0,0,0,.1)}
+[data-theme="light"] .svc.featured{background:#0D0D10}
+[data-theme="light"] .svc.featured:hover{background:#1A1A22}
+[data-theme="light"] .svc.featured h3{color:#FAFAFA}
+[data-theme="light"] .svc.featured p{color:rgba(250,250,250,.45)}
+[data-theme="light"] .svc.featured .svc-item{color:rgba(250,250,250,.5);border-color:rgba(255,255,255,.07)}
+
+/* process */
+[data-theme="light"] .how-bg{background:#F2F2F4;border-color:rgba(0,0,0,.08)}
+[data-theme="light"] .how-step{background:#F2F2F4}
+[data-theme="light"] .how-step:hover{background:#EAEAEC}
+[data-theme="light"] .hs-num{color:var(--blue)}
+[data-theme="light"] .hs-icon{background:#FFFFFF;border-color:rgba(0,0,0,.12)}
+[data-theme="light"] .how-step h4{color:#0D0D10}
+[data-theme="light"] .how-step p{color:rgba(13,13,16,.58)}
+
+/* cloud */
+[data-theme="light"] .cloud-visual{background:#FFFFFF;border-color:rgba(0,0,0,.1)}
+[data-theme="light"] .cv-header{border-color:rgba(0,0,0,.08)}
+[data-theme="light"] .cv-metric{border-color:rgba(0,0,0,.07)}
+[data-theme="light"] .cv-metric-label{color:rgba(13,13,16,.55)}
+[data-theme="light"] .cv-bar{background:rgba(0,0,0,.08)}
+[data-theme="light"] .cv-status{color:var(--green)}
+[data-theme="light"] .cf{background:#FFFFFF}
+[data-theme="light"] .cf:hover{background:#F7F7F8}
+[data-theme="light"] .cf-name{color:#0D0D10}
+[data-theme="light"] .cf-desc{color:rgba(13,13,16,.58)}
+
+/* metrics strip */
+[data-theme="light"] .metrics-strip{background:#F2F2F4;border-color:rgba(0,0,0,.08)}
+[data-theme="light"] .metric-cell{background:#F2F2F4}
+[data-theme="light"] .metric-cell:hover{background:#EAEAEC}
+[data-theme="light"] .mc-label{color:rgba(13,13,16,.58)}
+
+/* differentials */
+[data-theme="light"] .diff{background:#FFFFFF}
+[data-theme="light"] .diff:hover{background:#F7F7F8}
+[data-theme="light"] .diff h4{color:#0D0D10}
+[data-theme="light"] .diff p{color:rgba(13,13,16,.6)}
+
+/* cases */
+[data-theme="light"] .cases-bg{background:#FFFFFF;border-color:rgba(0,0,0,.08)}
+[data-theme="light"] .case-card{background:#FFFFFF;border-color:rgba(0,0,0,.1)}
+[data-theme="light"] .case-card:hover{border-color:rgba(37,99,235,.4)}
+[data-theme="light"] .case-browser-chrome{background:#F2F2F4;border-color:rgba(0,0,0,.08)}
+[data-theme="light"] .case-browser-url{background:#FFFFFF;color:rgba(13,13,16,.5)}
+[data-theme="light"] .case-name{color:#0D0D10}
+[data-theme="light"] .case-desc{color:rgba(13,13,16,.6)}
+[data-theme="light"] .case-pill{background:#F2F2F4;border-color:rgba(0,0,0,.1);color:rgba(13,13,16,.58)}
+[data-theme="light"] .case-footer{border-color:rgba(0,0,0,.08)}
+
+/* plans */
+[data-theme="light"] .plans-bg{background:#F7F7F8}
+[data-theme="light"] .plan-card{background:#FFFFFF;border-color:rgba(0,0,0,.1)}
+[data-theme="light"] .plan-card:hover{border-color:rgba(0,0,0,.2)}
+[data-theme="light"] .plan-card.pop{background:linear-gradient(160deg,rgba(37,99,235,.06) 0%,#FFFFFF 50%);border-color:rgba(37,99,235,.35)}
+[data-theme="light"] .plan-tier{color:rgba(13,13,16,.45)}
+[data-theme="light"] .plan-price{color:#0D0D10}
+[data-theme="light"] .plan-price span{color:rgba(13,13,16,.4)}
+[data-theme="light"] .plan-billing{color:rgba(13,13,16,.45)}
+[data-theme="light"] .plan-hr{background:rgba(0,0,0,.08)}
+[data-theme="light"] .plan-desc{color:rgba(13,13,16,.6)}
+[data-theme="light"] .pf{color:rgba(13,13,16,.5)}
+[data-theme="light"] .pf.on{color:rgba(13,13,16,.82)}
+[data-theme="light"] .pf.off .pfck{background:#F2F2F4;border-color:rgba(0,0,0,.1)}
+[data-theme="light"] .plan-btn{border-color:rgba(0,0,0,.15);color:rgba(13,13,16,.6)}
+[data-theme="light"] .plan-btn:hover{border-color:var(--blue);color:var(--blue);background:rgba(37,99,235,.05)}
+[data-theme="light"] .plan-note{color:rgba(13,13,16,.4)}
+
+/* testimonials */
+[data-theme="light"] .testi-bg{background:#F7F7F8;border-color:rgba(0,0,0,.08)}
+[data-theme="light"] .testi-card{background:#FFFFFF}
+[data-theme="light"] .testi-card:hover{background:#F7F7F8}
+[data-theme="light"] .testi-text{color:rgba(13,13,16,.72)}
+[data-theme="light"] .testi-who{border-color:rgba(0,0,0,.08)}
+[data-theme="light"] .testi-name{color:#0D0D10}
+[data-theme="light"] .testi-role{color:rgba(13,13,16,.5)}
+
+/* faq */
+[data-theme="light"] .faq-bg{background:#FFFFFF}
+[data-theme="light"] .faq-left h2{color:#0D0D10}
+[data-theme="light"] .faq-left p{color:rgba(13,13,16,.6)}
+[data-theme="light"] .faq-item{border-color:rgba(0,0,0,.09)}
+[data-theme="light"] .faq-q{color:#0D0D10}
+[data-theme="light"] .faq-q:hover{color:var(--blue)}
+[data-theme="light"] .faq-icon{border-color:rgba(0,0,0,.15);color:rgba(13,13,16,.45)}
+[data-theme="light"] .faq-item.open .faq-icon{border-color:var(--blue);color:var(--blue)}
+[data-theme="light"] .faq-a p{color:rgba(13,13,16,.6)}
+
+/* cta section */
+[data-theme="light"] .cta-bg{background:#F7F7F8;border-color:rgba(0,0,0,.08)}
+[data-theme="light"] .cta-inner h2{color:#0D0D10}
+[data-theme="light"] .cta-inner p{color:rgba(13,13,16,.6)}
+[data-theme="light"] .cta-note{color:rgba(13,13,16,.35)}
+
+/* footer */
+[data-theme="light"] footer{background:#F2F2F4;border-color:rgba(0,0,0,.08)}
+[data-theme="light"] .footer-top{border-color:rgba(0,0,0,.08)}
+[data-theme="light"] .footer-brand{color:#0D0D10}
+[data-theme="light"] .footer-tagline{color:rgba(13,13,16,.55)}
+[data-theme="light"] .footer-col-title{color:rgba(13,13,16,.4)}
+[data-theme="light"] .footer-col a{color:rgba(13,13,16,.58)}
+[data-theme="light"] .footer-col a:hover{color:var(--blue)}
+[data-theme="light"] .footer-copy{color:rgba(13,13,16,.4)}
+[data-theme="light"] .social{border-color:rgba(0,0,0,.12);color:rgba(13,13,16,.4)}
+[data-theme="light"] .social:hover{border-color:var(--blue);color:var(--blue)}
+
+/* section tag + subtitles */
+[data-theme="light"] .section-sub{color:rgba(13,13,16,.6)}
+[data-theme="light"] .sh-right{color:rgba(13,13,16,.6)}
+
+/* scrollbar */
+[data-theme="light"] ::-webkit-scrollbar-track{background:var(--bg)}
+[data-theme="light"] ::-webkit-scrollbar-thumb{background:var(--surface2)}
+
+/* wa widget */
+[data-theme="light"] .wa-bubble{background:rgba(255,255,255,.97);border-color:rgba(0,0,0,.14)}
+[data-theme="light"] .wa-brand{color:#0D0D10}
+[data-theme="light"] .wa-message{color:rgba(13,13,16,.62);border-color:rgba(0,0,0,.08)}
+[data-theme="light"] .wa-close{border-color:rgba(0,0,0,.15);color:rgba(13,13,16,.4)}
+[data-theme="light"] .wa-close:hover{border-color:rgba(0,0,0,.3);color:#0D0D10}
+
+/* ─── THEME TOGGLE BUTTON ────────────────────────────────── */
+.theme-toggle{
+  width:34px;height:34px;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--white4);
+  border:1px solid var(--border2);
+  border-radius:8px;
+  cursor:pointer;
+  transition:all .2s;
+  flex-shrink:0;
+  position:relative;
+  overflow:hidden;
+}
+.theme-toggle:hover{background:var(--border2);border-color:var(--blue2)}
+.theme-toggle svg{width:16px;height:16px;position:absolute;transition:opacity .25s,transform .3s}
+.theme-toggle .icon-sun{color:var(--orange);opacity:0;transform:rotate(90deg) scale(.7)}
+.theme-toggle .icon-moon{color:var(--blue3);opacity:1;transform:rotate(0deg) scale(1)}
+[data-theme="light"] .theme-toggle .icon-sun{opacity:1;transform:rotate(0deg) scale(1)}
+[data-theme="light"] .theme-toggle .icon-moon{opacity:0;transform:rotate(-90deg) scale(.7)}
+
+
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--white);overflow-x:hidden;line-height:1.6;-webkit-font-smoothing:antialiased}
+
+/* ─── SCROLLBAR ──────────────────────────────────────────── */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--surface2);border-radius:2px}
+
+/* ─── CURSOR ─────────────────────────────────────────────── */
+.cursor{position:fixed;width:6px;height:6px;background:var(--blue2);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .15s,height .15s,opacity .15s}
+.cursor-ring{position:fixed;width:28px;height:28px;border:1px solid rgba(96,165,250,.4);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .15s,height .15s}
+
+/* ─── NAV ────────────────────────────────────────────────── */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:0 40px;height:60px;display:flex;justify-content:space-between;align-items:center;transition:all .3s}
+nav.scrolled{background:rgba(5,5,8,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-logo{display:flex;align-items:center;gap:8px;text-decoration:none}
+/* Logo mark — SVG via <img>. Ajuste width/height conforme proporção da sua logo */
+.nav-logo-mark{width:28px;height:28px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.nav-logo-mark img{width:100%;height:100%;object-fit:contain;display:block}
+.nav-logo-name{font-size:15px;font-weight:600;color:var(--white);letter-spacing:-.3px}
+.nav-logo-name span{color:var(--blue2)}
+.nav-center{display:flex;gap:4px;align-items:center}
+.nav-link{font-size:13px;color:var(--white3);padding:6px 12px;border-radius:6px;text-decoration:none;transition:all .2s;letter-spacing:-.1px}
+.nav-link:hover{color:var(--white);background:var(--white4)}
+.nav-right{display:flex;gap:10px;align-items:center}
+.nav-cta-ghost{font-size:13px;color:var(--white2);padding:7px 16px;border:1px solid var(--border2);border-radius:var(--radius);text-decoration:none;transition:all .2s}
+.nav-cta-ghost:hover{border-color:rgba(96,165,250,.5);color:var(--blue2)}
+.nav-cta{font-size:13px;font-weight:500;color:#fff;padding:7px 18px;background:var(--blue);border-radius:var(--radius);text-decoration:none;transition:all .2s}
+.nav-cta:hover{background:var(--blue2);transform:translateY(-1px)}
+
+/* ─── HERO ───────────────────────────────────────────────── */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:120px 40px 80px;text-align:center;position:relative;overflow:hidden}
+
+/* bg orbs */
+.hero-orb{position:absolute;border-radius:50%;filter:blur(120px);pointer-events:none;animation:orbFloat 8s ease-in-out infinite}
+.hero-orb-1{width:600px;height:600px;background:rgba(59,130,246,.12);top:-100px;left:-100px;animation-delay:0s}
+.hero-orb-2{width:500px;height:500px;background:rgba(139,92,246,.1);bottom:-50px;right:-100px;animation-delay:3s}
+.hero-orb-3{width:300px;height:300px;background:rgba(6,182,212,.08);top:40%;left:50%;transform:translate(-50%,-50%);animation-delay:1.5s}
+@keyframes orbFloat{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-20px) scale(1.05)}}
+
+/* grid bg */
+.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,black 40%,transparent 100%)}
+
+/* hero-badge original mantido para outros usos */
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.25);border-radius:100px;padding:6px 14px;font-size:12px;color:var(--blue3);letter-spacing:.3px;margin-bottom:28px;animation:fadeUp .6s ease .1s both}
+.hero-badge-dot{width:6px;height:6px;background:var(--blue);border-radius:50%;animation:pulse 2s infinite}
+
+/* ─── PROFILE CARD (hero) ────────────────────────────────── */
+.profile-card{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:rgba(18,18,24,.85);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:40px;
+  padding:6px 16px 6px 6px;
+  margin-bottom:32px;
+  backdrop-filter:blur(12px);
+  box-shadow:0 0 0 1px rgba(255,255,255,.04),0 4px 20px rgba(0,0,0,.4);
+  animation:fadeUp .6s ease .1s both;
+  cursor:default;
+  transition:border-color .25s,box-shadow .25s;
+}
+.profile-card:hover{
+  border-color:rgba(255,255,255,.18);
+  box-shadow:0 0 0 1px rgba(255,255,255,.06),0 8px 28px rgba(0,0,0,.5);
+}
+.pc-avatar{
+  width:32px;height:32px;border-radius:50%;flex-shrink:0;
+  overflow:hidden;
+  border:1.5px solid rgba(255,255,255,.15);
+  background:var(--bg3);
+}
+.pc-avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.pc-info{display:flex;flex-direction:column;gap:3px}
+.pc-name-row{display:flex;align-items:center;gap:5px}
+.pc-name{
+  font-size:12px;font-weight:700;
+  color:#FFFFFF;
+  letter-spacing:-.2px;
+  line-height:1;
+}
+.pc-verified{width:13px;height:13px;flex-shrink:0}
+.pc-verified img{width:100%;height:100%;display:block}
+.pc-meta-row{display:flex;align-items:center;gap:5px}
+.pc-handle{
+  font-size:11px;
+  color:rgba(255,255,255,.45);
+  font-family:'JetBrains Mono',monospace;
+  letter-spacing:-.2px;
+}
+.pc-sep{width:2px;height:2px;border-radius:50%;background:rgba(255,255,255,.25);flex-shrink:0}
+.pc-fb-icon{width:12px;height:12px;flex-shrink:0}
+.pc-fb-icon img{width:100%;height:100%;display:block}
+.pc-role{
+  font-size:11px;
+  color:rgba(255,255,255,.5);
+  letter-spacing:-.1px;
+}
+
+/* light mode */
+[data-theme="light"] .profile-card{
+  background:rgba(255,255,255,.9);
+  border-color:rgba(0,0,0,.1);
+  box-shadow:0 0 0 1px rgba(0,0,0,.04),0 8px 32px rgba(0,0,0,.1);
+}
+[data-theme="light"] .profile-card:hover{
+  border-color:rgba(0,0,0,.18);
+}
+[data-theme="light"] .pc-name{color:#0D0D10}
+[data-theme="light"] .pc-handle{color:rgba(13,13,16,.45)}
+[data-theme="light"] .pc-sep{background:rgba(13,13,16,.2)}
+[data-theme="light"] .pc-role{color:rgba(13,13,16,.6)}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
+
+.hero h1{font-size:clamp(25px,4vw,50px);font-weight:700;line-height:1.1;letter-spacing:-2px;max-width:820px;margin:0 auto 24px;animation:fadeUp .7s ease .2s both}
+.hero h1 .grad{background:linear-gradient(135deg,var(--white) 30%,var(--blue3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero h1 .grad2{background:linear-gradient(135deg,var(--blue2),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+.hero-sub{font-size:18px;color:var(--white3);max-width:540px;margin:0 auto 40px;line-height:1.7;font-weight:400;animation:fadeUp .7s ease .35s both}
+
+.hero-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;animation:fadeUp .7s ease .5s both}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;background:var(--blue);color:#fff;font-size:14px;font-weight:500;border-radius:var(--radius);text-decoration:none;transition:all .2s;border:1px solid rgba(255,255,255,.1)}
+.btn-primary:hover{background:#2563EB;transform:translateY(-2px);box-shadow:0 12px 32px rgba(59,130,246,.35)}
+.btn-secondary{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border:1px solid var(--border2);color:var(--white2);font-size:14px;font-weight:500;border-radius:var(--radius);text-decoration:none;transition:all .2s;background:var(--white4)}
+.btn-secondary:hover{border-color:rgba(96,165,250,.5);color:var(--blue2);transform:translateY(-1px)}
+
+/* hero trust bar */
+.hero-trust{display:flex;align-items:center;gap:24px;justify-content:center;margin-top:56px;flex-wrap:wrap;animation:fadeUp .7s ease .65s both}
+.trust-item{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--white3)}
+.trust-icon{font-size:14px}
+.trust-sep{width:1px;height:14px;background:var(--border2)}
+
+/* hero metrics */
+.hero-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);max-width:700px;margin:56px auto 0;border:1px solid var(--border);border-radius:var(--radius2);overflow:hidden;animation:fadeUp .7s ease .8s both}
+.hm{background:var(--bg2);padding:20px 24px;text-align:center;transition:background .2s}
+.hm:hover{background:var(--bg3)}
+.hm-val{font-size:26px;font-weight:700;background:linear-gradient(135deg,var(--blue2),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-1px;line-height:1;margin-bottom:4px}
+.hm-lbl{font-size:11px;color:var(--white3);letter-spacing:.3px}
+
+/* ─── LOGOS STRIP ────────────────────────────────────────── */
+.logos-strip{padding:32px 40px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg1)}
+.logos-strip-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap}
+.logos-label{font-size:11px;color:var(--white4);letter-spacing:2px;text-transform:uppercase;white-space:nowrap}
+.logo-pill{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:var(--white4);transition:color .2s;font-family:'JetBrains Mono',monospace}
+.logo-pill:hover{color:var(--white2)}
+
+/* ─── SECTIONS COMMON ────────────────────────────────────── */
+.section{padding:96px 40px;max-width:1100px;margin:0 auto}
+.section-full{padding:96px 0}
+.section-full .section-inner{max-width:1100px;margin:0 auto;padding:0 40px}
+.tag{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue2);margin-bottom:14px}
+.tag::before{content:'';width:18px;height:1px;background:var(--blue)}
+h2.title{font-size:clamp(28px,3vw,42px);font-weight:700;letter-spacing:-1.5px;line-height:1.15;margin-bottom:14px}
+h2.title .grad{background:linear-gradient(135deg,var(--white),var(--blue3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.section-sub{font-size:16px;color:var(--white3);max-width:520px;line-height:1.7;margin-bottom:56px}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ─── SERVICES ───────────────────────────────────────────── */
+.services-bg{background:var(--bg1)}
+.services-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--border)}
+.srv{background:var(--bg2);padding:36px 32px;position:relative;overflow:hidden;transition:background .25s;cursor:default;border-radius:0}
+.srv:hover{background:var(--bg3)}
+.srv-glow{position:absolute;width:200px;height:200px;border-radius:50%;filter:blur(60px);opacity:0;transition:opacity .4s;pointer-events:none;top:-60px;right:-60px}
+.srv:hover .srv-glow{opacity:1}
+.srv.s1 .srv-glow{background:rgba(59,130,246,.15)}
+.srv.s2 .srv-glow{background:rgba(139,92,246,.15)}
+.srv.s3 .srv-glow{background:rgba(6,182,212,.15)}
+.srv-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:20px;position:relative}
+.srv.s1 .srv-icon{background:rgba(59,130,246,.12);border:1px solid rgba(59,130,246,.2)}
+.srv.s2 .srv-icon{background:rgba(139,92,246,.12);border:1px solid rgba(139,92,246,.2)}
+.srv.s3 .srv-icon{background:rgba(6,182,212,.12);border:1px solid rgba(6,182,212,.2)}
+.srv-badge{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;border-radius:100px;margin-bottom:16px;display:inline-block}
+.srv.s1 .srv-badge{background:rgba(59,130,246,.12);color:var(--blue2);border:1px solid rgba(59,130,246,.2)}
+.srv.s2 .srv-badge{background:rgba(139,92,246,.12);color:#A78BFA;border:1px solid rgba(139,92,246,.2)}
+.srv.s3 .srv-badge{background:rgba(6,182,212,.12);color:#67E8F9;border:1px solid rgba(6,182,212,.2)}
+.srv h3{font-size:19px;font-weight:600;margin-bottom:10px;letter-spacing:-.4px}
+.srv p{font-size:13px;color:var(--white3);line-height:1.7;margin-bottom:24px}
+.srv-list{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--border)}
+.srv-item{font-size:12px;color:var(--white3);display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--border);transition:color .2s}
+.srv-item:last-child{border:none}
+.srv-item:hover{color:var(--white2)}
+.srv-item::before{content:'↗';color:var(--blue2);flex-shrink:0;font-size:10px;margin-top:2px}
+.srv.featured{background:linear-gradient(160deg,rgba(59,130,246,.12) 0%,var(--bg2) 60%);border:1px solid rgba(59,130,246,.2)}
+
+/* ─── CLOUD SECTION ──────────────────────────────────────── */
+.cloud-bg{background:var(--bg)}
+.cloud-layout{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.cloud-features{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius2);overflow:hidden;margin-top:40px}
+.cf{background:var(--bg2);padding:20px;transition:background .2s}
+.cf:hover{background:var(--bg3)}
+.cf-icon{font-size:22px;margin-bottom:8px}
+.cf-name{font-size:13px;font-weight:500;margin-bottom:4px;letter-spacing:-.2px}
+.cf-desc{font-size:12px;color:var(--white3);line-height:1.5}
+
+/* cloud visual */
+.cloud-visual{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius2);padding:32px;overflow:hidden;position:relative}
+.cloud-visual::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 30%,rgba(59,130,246,.08) 0%,transparent 70%);pointer-events:none}
+.cv-header{display:flex;align-items:center;gap:8px;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.cv-dot{width:10px;height:10px;border-radius:50%}
+.cv-status{margin-left:auto;display:flex;align-items:center;gap:6px;font-size:11px;color:var(--green);font-family:'JetBrains Mono',monospace}
+.cv-status::before{content:'';width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 2s infinite}
+.cv-metric{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border)}
+.cv-metric:last-child{border:none}
+.cv-metric-label{font-size:12px;color:var(--white3);font-family:'JetBrains Mono',monospace}
+.cv-metric-val{font-size:12px;font-weight:500;font-family:'JetBrains Mono',monospace}
+.cv-metric-val.good{color:var(--green)}
+.cv-metric-val.blue{color:var(--blue2)}
+.cv-metric-val.violet{color:#A78BFA}
+.cv-bar{height:4px;background:var(--border);border-radius:2px;margin-top:8px;overflow:hidden}
+.cv-bar-fill{height:100%;border-radius:2px;transition:width 1.5s ease}
+
+/* ─── HOW IT WORKS ───────────────────────────────────────── */
+.how-bg{background:var(--bg1);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.how-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);margin-top:56px}
+.how-step{background:var(--bg1);padding:32px 24px;position:relative;transition:background .2s}
+.how-step:hover{background:var(--bg2)}
+.how-step:not(:last-child)::after{content:'→';position:absolute;right:-14px;top:36px;font-size:16px;color:var(--white4);z-index:1}
+.hs-num{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--blue2);letter-spacing:1px;margin-bottom:16px}
+.hs-icon{width:40px;height:40px;background:var(--bg3);border:1px solid var(--border2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:16px}
+.how-step h4{font-size:15px;font-weight:600;margin-bottom:8px;letter-spacing:-.3px}
+.how-step p{font-size:12px;color:var(--white3);line-height:1.7}
+
+/* ─── METRICS STRIP ──────────────────────────────────────── */
+.metrics-strip{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.metrics-inner{max-width:1100px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)}
+.metric-cell{background:var(--bg2);padding:40px 32px;transition:background .2s}
+.metric-cell:hover{background:var(--bg3)}
+.mc-val{font-size:44px;font-weight:700;letter-spacing:-2px;line-height:1;margin-bottom:6px;background:linear-gradient(135deg,var(--blue2),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.mc-label{font-size:13px;color:var(--white3)}
+
+/* ─── DIFFERENTIALS ──────────────────────────────────────── */
+.diff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius2);overflow:hidden}
+.diff{background:var(--bg2);padding:28px 24px;transition:background .2s;cursor:default}
+.diff:hover{background:var(--bg3)}
+.diff-icon{font-size:24px;margin-bottom:12px}
+.diff h4{font-size:14px;font-weight:600;margin-bottom:6px;letter-spacing:-.2px}
+.diff p{font-size:12px;color:var(--white3);line-height:1.6}
+
+/* ─── PLANS ──────────────────────────────────────────────── */
+.plans-bg{background:var(--bg)}
+.plans-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:56px}
+.plan-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius2);padding:32px;position:relative;transition:border-color .25s,transform .2s}
+.plan-card:hover{border-color:var(--border2);transform:translateY(-2px)}
+.plan-card.pop{border-color:rgba(59,130,246,.4);background:linear-gradient(160deg,rgba(59,130,246,.08) 0%,var(--bg2) 50%)}
+.plan-pop-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--blue);color:#fff;font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:4px 14px;border-radius:100px;white-space:nowrap}
+.plan-tier{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--white3);margin-bottom:12px}
+.plan-price{font-size:48px;font-weight:700;letter-spacing:-2px;line-height:1;margin-bottom:4px}
+.plan-price sub{font-size:14px;font-weight:400;color:var(--white3);letter-spacing:0;vertical-align:baseline}
+.plan-price sup{font-size:18px;font-weight:500;vertical-align:super;color:var(--white3);font-size:14px}
+.plan-billing{font-size:12px;color:var(--white3);margin-bottom:20px}
+.plan-hr{height:1px;background:var(--border);margin:20px 0}
+.plan-desc{font-size:13px;color:var(--white3);line-height:1.6;margin-bottom:24px}
+.plan-features{display:flex;flex-direction:column;gap:9px;margin-bottom:28px}
+.pf{font-size:13px;color:var(--white2);display:flex;gap:9px;align-items:flex-start}
+.pf.off{color:var(--white4);text-decoration:none}
+.pf .pfck{flex-shrink:0;width:16px;height:16px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:10px;margin-top:2px}
+.pf.on .pfck{background:rgba(16,185,129,.15);border:1px solid rgba(16,185,129,.3);color:var(--green)}
+.pf.off .pfck{background:var(--bg3);border:1px solid var(--border);color:transparent}
+.plan-btn{display:block;text-align:center;padding:12px;font-size:13px;font-weight:500;border-radius:var(--radius);text-decoration:none;transition:all .2s;border:1px solid var(--border2);color:var(--white2)}
+.plan-btn:hover{border-color:rgba(96,165,250,.5);color:var(--blue2)}
+.plan-card.pop .plan-btn{background:var(--blue);border-color:var(--blue);color:#fff}
+.plan-card.pop .plan-btn:hover{background:#2563EB}
+
+/* ─── TESTIMONIALS ───────────────────────────────────────── */
+.testi-bg{background:var(--bg1);border-top:1px solid var(--border)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius2);overflow:hidden;margin-top:56px}
+.testi-card{background:var(--bg2);padding:28px;transition:background .2s}
+.testi-card:hover{background:var(--bg3)}
+.testi-stars{color:var(--orange);font-size:12px;letter-spacing:2px;margin-bottom:14px}
+.testi-text{font-size:14px;color:var(--white2);line-height:1.7;margin-bottom:20px;font-style:italic}
+.testi-who{display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid var(--border)}
+.testi-av{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--violet));display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:#fff;flex-shrink:0}
+.testi-name{font-size:13px;font-weight:500}
+.testi-role{font-size:11px;color:var(--white3)}
+
+/* ─── FAQ ────────────────────────────────────────────────── */
+.faq-bg{background:var(--bg)}
+.faq-layout{display:grid;grid-template-columns:1fr 1.5fr;gap:80px;align-items:start}
+.faq-left h2{font-size:clamp(26px,2.5vw,36px);font-weight:700;letter-spacing:-1px;line-height:1.2;margin-bottom:16px}
+.faq-left p{font-size:14px;color:var(--white3);line-height:1.7;margin-bottom:28px}
+.faq-item{border-bottom:1px solid var(--border);overflow:hidden}
+.faq-item:first-child{border-top:1px solid var(--border)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;cursor:pointer;font-size:14px;font-weight:500;transition:color .2s;user-select:none;letter-spacing:-.2px}
+.faq-q:hover{color:var(--blue2)}
+.faq-icon{width:24px;height:24px;border:1px solid var(--border2);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--white3);flex-shrink:0;transition:all .3s}
+.faq-item.open .faq-icon{border-color:var(--blue);color:var(--blue2);transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s}
+.faq-item.open .faq-a{max-height:160px;padding-bottom:16px}
+.faq-a p{font-size:13px;color:var(--white3);line-height:1.7}
+
+/* ─── CTA SECTION ────────────────────────────────────────── */
+.cta-bg{background:var(--bg1);border-top:1px solid var(--border)}
+.cta-inner{max-width:680px;margin:0 auto;text-align:center}
+.cta-inner h2{font-size:clamp(32px,4vw,52px);font-weight:700;letter-spacing:-2px;line-height:1.1;margin-bottom:20px}
+.cta-inner h2 .grad{background:linear-gradient(135deg,var(--white),var(--blue3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cta-inner p{font-size:16px;color:var(--white3);max-width:460px;margin:0 auto 40px;line-height:1.7}
+.btn-wa{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;background:#25D366;color:#fff;font-size:14px;font-weight:500;border-radius:var(--radius);text-decoration:none;transition:all .2s}
+.btn-wa:hover{background:#1ebe58;transform:translateY(-2px);box-shadow:0 12px 32px rgba(37,211,102,.25)}
+.cta-note{margin-top:20px;font-size:12px;color:var(--white4);letter-spacing:.3px}
+
+/* ─── FOOTER ─────────────────────────────────────────────── */
+footer{background:var(--bg);border-top:1px solid var(--border);padding:56px 40px 28px}
+.footer-top{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px;padding-bottom:40px;border-bottom:1px solid var(--border)}
+.footer-logo-block{display:flex;align-items:center;gap:8px;margin-bottom:14px;text-decoration:none}
+.footer-tagline{font-size:13px;color:var(--white3);line-height:1.7;max-width:240px}
+.footer-col-title{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--white4);margin-bottom:16px}
+.footer-col a{display:block;font-size:13px;color:var(--white3);margin-bottom:9px;transition:color .2s;text-decoration:none}
+.footer-col a:hover{color:var(--blue2)}
+.footer-bottom{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.footer-copy{font-size:12px;color:var(--white4)}
+.footer-copy em{color:var(--blue2);font-style:normal}
+.footer-socials{display:flex;gap:8px}
+.social{width:32px;height:32px;border:1px solid var(--border);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--white4);transition:all .2s;text-decoration:none;font-family:'JetBrains Mono',monospace}
+.social:hover{border-color:rgba(96,165,250,.4);color:var(--blue2)}
+
+/* ─── CASES ──────────────────────────────────────────────── */
+.cases-bg{background:var(--bg);border-top:1px solid var(--border)}
+.cases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px}
+.case-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius2);overflow:hidden;transition:border-color .25s,transform .2s;cursor:default;position:relative}
+.case-card:hover{border-color:rgba(96,165,250,.35);transform:translateY(-4px)}
+.case-card:hover .case-preview{opacity:.85}
+.case-preview{width:100%;aspect-ratio:16/9;background:var(--bg3);position:relative;overflow:hidden;transition:opacity .2s}
+.case-preview-inner{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px}
+.case-preview-bar{height:2px;width:100%;position:absolute;top:0;left:0}
+.case-browser-chrome{background:var(--bg4);padding:10px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--border);position:relative;z-index:1}
+.case-browser-dots{display:flex;gap:5px}
+.case-browser-dot{width:8px;height:8px;border-radius:50%}
+.case-browser-url{flex:1;background:var(--bg3);border-radius:4px;padding:4px 10px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--white3);letter-spacing:-.3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.case-body{padding:20px}
+.case-category{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;display:inline-flex;align-items:center;gap:6px}
+.case-name{font-size:17px;font-weight:600;letter-spacing:-.4px;margin-bottom:6px}
+.case-desc{font-size:13px;color:var(--white3);line-height:1.6;margin-bottom:16px}
+.case-meta{display:flex;gap:8px;flex-wrap:wrap}
+.case-pill{font-size:10px;font-weight:500;padding:3px 10px;border-radius:100px;background:var(--bg3);border:1px solid var(--border);color:var(--white3);letter-spacing:.3px}
+.case-footer{padding:14px 20px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.case-link{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--blue2);text-decoration:none;letter-spacing:-.2px;display:flex;align-items:center;gap:6px;transition:color .2s}
+.case-link:hover{color:var(--blue3)}
+.case-link-arrow{font-size:13px;transition:transform .2s}
+.case-card:hover .case-link-arrow{transform:translate(2px,-2px)}
+.case-status{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--green)}
+.case-status::before{content:'';width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 2s infinite;flex-shrink:0}
+
+/* Mockup elements inside preview */
+.mock-lines{display:flex;flex-direction:column;gap:6px;padding:16px;width:100%}
+.mock-line{height:6px;border-radius:3px;background:rgba(255,255,255,.06)}
+.mock-line.short{width:45%}
+.mock-line.med{width:70%}
+.mock-line.full{width:90%}
+.mock-line.hero{height:28px;width:80%;background:linear-gradient(90deg,rgba(59,130,246,.2),rgba(139,92,246,.15));border-radius:4px;margin-bottom:4px}
+.mock-btn{height:22px;width:80px;border-radius:4px;background:rgba(59,130,246,.35);flex-shrink:0}
+.mock-img{width:100%;height:60px;border-radius:4px;background:rgba(255,255,255,.04);flex-shrink:0}
+
+/* ─── WHATSAPP WIDGET ────────────────────────────────────── */
+.wa-widget{position:fixed;bottom:20px;left:20px;z-index:600;display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+.wa-bubble{
+  background:rgba(12,12,16,.78);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:10px;
+  padding:10px 12px 10px;
+  width:210px;
+  backdrop-filter:blur(24px);
+  box-shadow:0 2px 12px rgba(0,0,0,.25);
+  animation:waBubbleIn .35s cubic-bezier(.34,1.56,.64,1) both;
+  transform-origin:bottom left;
+}
+@keyframes waBubbleIn{from{opacity:0;transform:scale(.9) translateY(8px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.wa-bubble.hiding{animation:waBubbleOut .2s ease both}
+@keyframes waBubbleOut{from{opacity:1}to{opacity:0;transform:scale(.95)}}
+.wa-bubble-header{display:flex;align-items:center;gap:7px;margin-bottom:7px}
+.wa-avatar{
+  width:24px;height:24px;border-radius:50%;flex-shrink:0;
+  overflow:hidden;background:var(--bg3);
+  border:1px solid rgba(255,255,255,.08);position:relative;
+}
+.wa-avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.wa-online-dot{
+  position:absolute;bottom:0;right:0;
+  width:6px;height:6px;background:#25D366;
+  border-radius:50%;border:1px solid rgba(12,12,16,.78);
+}
+.wa-brand{font-size:12px;font-weight:600;color:rgba(255,255,255,.85);letter-spacing:-.2px;line-height:1}
+.wa-status{font-size:10px;color:rgba(37,211,102,.8);margin-top:1px}
+.wa-close{
+  margin-left:auto;background:none;border:none;
+  font-size:10px;color:rgba(255,255,255,.2);
+  cursor:pointer;transition:color .15s;padding:0;line-height:1;
+}
+.wa-close:hover{color:rgba(255,255,255,.5)}
+.wa-message{
+  font-size:11px;color:rgba(255,255,255,.38);
+  line-height:1.5;margin-bottom:8px;
+}
+.wa-cta{
+  display:flex;align-items:center;justify-content:center;gap:5px;
+  width:100%;padding:7px 8px;
+  background:rgba(37,211,102,.12);
+  border:1px solid rgba(37,211,102,.2);
+  border-radius:6px;
+  font-size:11px;font-weight:600;
+  color:rgba(37,211,102,.9);text-decoration:none;
+  transition:background .2s,border-color .2s;
+}
+.wa-cta:hover{background:rgba(37,211,102,.2);border-color:rgba(37,211,102,.35)}
+.wa-fab{
+  width:38px;height:38px;background:#25D366;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;text-decoration:none;
+  box-shadow:0 2px 10px rgba(37,211,102,.25);
+  transition:transform .2s;
+  animation:fabIn .35s cubic-bezier(.34,1.56,.64,1) .8s both;
+}
+@keyframes fabIn{from{opacity:0;transform:scale(0)}to{opacity:1;transform:scale(1)}}
+.wa-fab:hover{transform:scale(1.1)}
+[data-theme="light"] .wa-bubble{background:rgba(255,255,255,.88);border-color:rgba(0,0,0,.08);box-shadow:0 2px 12px rgba(0,0,0,.1)}
+[data-theme="light"] .wa-brand{color:rgba(13,13,16,.85)}
+[data-theme="light"] .wa-message{color:rgba(13,13,16,.4)}
+[data-theme="light"] .wa-close{color:rgba(13,13,16,.2)}
+[data-theme="light"] .wa-close:hover{color:rgba(13,13,16,.5)}
+[data-theme="light"] .wa-online-dot{border-color:rgba(255,255,255,.88)}
+[data-theme="light"] .wa-cta{background:rgba(37,211,102,.1);border-color:rgba(37,211,102,.2);color:#059669}
+[data-theme="light"] .wa-cta:hover{background:rgba(37,211,102,.18)}
+
+/* ─── ANIMATIONS ─────────────────────────────────────────── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+/* ─── MOBILE ─────────────────────────────────────────────── */
+/* hamburguer oculto por padrão no desktop — CSS puro, sem JS */
+.nav-hamburger{display:none}
+.nav-mobile-menu{display:none}
+
+@media(max-width:960px){
+  nav{padding:0 20px}
+  .nav-center{display:none}
+  .nav-cta-ghost{display:none}
+  .nav-cta{display:none}
+
+  /* ── Hamburguer ── */
+  .nav-hamburger{
+    display:flex;flex-direction:column;justify-content:center;
+    gap:5px;width:36px;height:36px;cursor:pointer;
+    background:var(--white4);border:1px solid var(--border2);
+    border-radius:8px;padding:8px;flex-shrink:0;transition:background .2s;
+  }
+  .nav-hamburger:hover{background:var(--border2)}
+  .nav-hamburger span{
+    display:block;width:100%;height:1.5px;
+    background:var(--white);border-radius:2px;
+    transition:transform .3s,opacity .3s;
+  }
+  .nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+  .nav-hamburger.open span:nth-child(2){opacity:0}
+  .nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+  /* ── Mobile menu drawer ── */
+  .nav-mobile-menu{
+    display:flex;
+    position:fixed;top:60px;left:0;right:0;
+    background:rgba(5,5,8,.97);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--border);
+    padding:16px 20px 20px;
+    flex-direction:column;gap:4px;
+    transform:translateY(-8px);opacity:0;pointer-events:none;
+    transition:transform .25s ease,opacity .25s ease;
+    z-index:499;
+  }
+  .nav-mobile-menu.open{transform:translateY(0);opacity:1;pointer-events:all}
+  .nav-mobile-menu a{
+    font-size:15px;color:var(--white2);padding:12px 14px;
+    border-radius:8px;text-decoration:none;
+    transition:background .15s,color .15s;
+    border-bottom:1px solid var(--border);
+  }
+  .nav-mobile-menu a:last-child{border:none}
+  .nav-mobile-menu a:hover{background:var(--white4);color:var(--white)}
+  .nav-mobile-menu .mob-cta{
+    margin-top:8px;background:var(--blue);color:#fff;
+    text-align:center;font-weight:500;border:none;border-radius:8px;
+  }
+  .nav-mobile-menu .mob-cta:hover{background:var(--blue2)}
+
+  [data-theme="light"] .nav-mobile-menu{background:rgba(255,255,255,.97);border-color:rgba(0,0,0,.08)}
+  [data-theme="light"] .nav-mobile-menu a{color:rgba(13,13,16,.75);border-color:rgba(0,0,0,.07)}
+  [data-theme="light"] .nav-mobile-menu a:hover{background:rgba(0,0,0,.05);color:#0D0D10}
+  [data-theme="light"] .nav-hamburger{background:rgba(0,0,0,.06);border-color:rgba(0,0,0,.14)}
+  [data-theme="light"] .nav-hamburger span{background:#0D0D10}
+
+  .hero{padding:100px 20px 60px}
+  .hero-metrics{grid-template-columns:1fr 1fr 1fr}
+  .section{padding:64px 20px}
+  .section-full .section-inner{padding:0 20px}
+  .services-grid{grid-template-columns:1fr}
+  .cloud-layout{grid-template-columns:1fr;gap:40px}
+  .how-steps{grid-template-columns:1fr 1fr}
+  .metrics-inner{grid-template-columns:1fr 1fr;padding:0 20px}
+  .diff-grid{grid-template-columns:1fr 1fr}
+  .plans-grid{grid-template-columns:1fr}
+  .testi-grid{grid-template-columns:1fr}
+  .cases-grid{grid-template-columns:1fr}
+  .faq-layout{grid-template-columns:1fr;gap:40px}
+  .faq-bg .section{padding:64px 20px}
+  .cta-bg .section{padding:64px 20px}
+  footer{padding:48px 20px 24px}
+  .footer-top{grid-template-columns:1fr 1fr;gap:32px}
+  .footer-bottom{flex-direction:column;gap:14px;text-align:center}
+}
+@media(max-width:600px){
+  .hero h1{letter-spacing:-1px}
+  .hero-metrics{grid-template-columns:1fr}
+  .logos-strip-inner{gap:24px}
+  .how-steps{grid-template-columns:1fr}
+  .metrics-inner{grid-template-columns:1fr}
+  .diff-grid{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr}
+  .cases-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- ─── NAV ──────────────────────────────────────────────── -->
+<nav id="mainNav">
+  <a href="#inicio" class="nav-logo">
+    <!--
+      ╔══════════════════════════════════════════════════════╗
+      ║  LOGO SVG — NAV                                      ║
+      ║  Substitua o <svg> abaixo pela sua logo real.        ║
+      ║  Dica: exporte como SVG do Figma/Illustrator,        ║
+      ║  cole o código aqui e remova width/height fixos      ║
+      ║  para que o CSS controle o tamanho (28×28px).        ║
+      ╚══════════════════════════════════════════════════════╝
+    -->
+    <div class="nav-logo-mark">
+      <img src="/logos/logo1.svg" alt="Traderblk" />
+    </div>
+    <span class="nav-logo-name">Traderblk<span></span></span>
+  </a>
+  <div class="nav-center">
+    <a href="#servicos" class="nav-link">Serviços</a>
+    <a href="#cloud" class="nav-link">Cloud</a>
+    <a href="#cases" class="nav-link">Cases</a>
+    <a href="#planos" class="nav-link">Planos</a>
+    <a href="#faq" class="nav-link">FAQ</a>
+  </div>
+  <div class="nav-right">
+    <button class="theme-toggle" id="themeToggle" aria-label="Alternar modo claro/escuro" title="Alternar tema">
+      <!-- Sol -->
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+      <!-- Lua -->
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </button>
+    <a href="#depoimentos" class="nav-cta-ghost">Projetos</a>
+    <a href="#contato" class="nav-cta">Solicitar orçamento</a>
+    <!-- hamburguer — só aparece no mobile -->
+    <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ── Mobile menu drawer ── -->
+<div class="nav-mobile-menu" id="navMobileMenu">
+  <a href="#servicos"   onclick="closeMobileMenu()">Serviços</a>
+  <a href="#cloud"      onclick="closeMobileMenu()">Cloud</a>
+  <a href="#cases"      onclick="closeMobileMenu()">Cases</a>
+  <a href="#planos"     onclick="closeMobileMenu()">Planos</a>
+  <a href="#faq"        onclick="closeMobileMenu()">FAQ</a>
+  <a href="#depoimentos" onclick="closeMobileMenu()">Projetos</a>
+  <a href="#contato"    onclick="closeMobileMenu()" class="mob-cta">Solicitar orçamento</a>
+</div>
+
+<!-- ─── HERO ──────────────────────────────────────────────── -->
+<section class="hero" id="inicio">
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-orb hero-orb-3"></div>
+  <div class="hero-grid-bg"></div>
+
+  <div class="profile-card">
+    <!-- Foto de perfil — coloque sua foto em /logos/perfil.svg ou troque por .jpg/.png -->
+    <div class="pc-avatar">
+      <img src="/logos/perfil.svg" alt="Emanuel Soares">
+    </div>
+    <div class="pc-info">
+      <!-- Linha 1: nome + verificado -->
+      <div class="pc-name-row">
+        <span class="pc-name">Emanuel Soares</span>
+        <span class="pc-verified">
+          <img src="/logos/verificado-facebook.svg" alt="Verificado">
+        </span>
+      </div>
+      <!-- Linha 2: @handle + ícone Facebook + cargo -->
+      <div class="pc-meta-row">
+        <span class="pc-handle">@traderblk</span>
+        <span class="pc-sep"></span>
+        <span class="pc-fb-icon">
+          <img src="/logos/logo-facebook.svg" alt="Facebook">
+        </span>
+        <span class="pc-role">Gestor de Tráfego</span>
+      </div>
+    </div>
+  </div>
+
+  <h1>
+    Sua empresa merece<br>
+    <span class="grad">mais do que um site.</span><br>
+    Merece uma <span class="grad2">presença digital</span> profissional.
+  </h1>
+
+  <p class="hero-sub">
+    Eu ajudo empresas e profissionais a conquistarem mais clientes através de tráfego pago e sites de alta conversão.
+    Da landing page ao sistema completo — tudo sob medida para o seu negócio.
+  </p>
+
+  <div class="hero-actions">
+    <a href="https://wa.me/558896848924?text=Olá! Quero criar meu site com a Traderblk." class="btn-primary" target="_blank">
+      Criar meu site
+    </a>
+    <a href="#servicos" class="btn-secondary">
+      Conhecer soluções →
+    </a>
+  </div>
+
+  <div class="hero-trust">
+    <span class="trust-item"><span class="trust-icon">⚡</span>Entrega em 24-72h</span>
+    <span class="trust-sep"></span>
+    <span class="trust-item"><span class="trust-icon">🔒</span>SSL incluso</span>
+    <span class="trust-sep"></span>
+    <span class="trust-item"><span class="trust-icon">☁️</span>Hospedagem cloud</span>
+    <span class="trust-sep"></span>
+    <span class="trust-item"><span class="trust-icon">📱</span>100% responsivo</span>
+    <span class="trust-sep"></span>
+    <span class="trust-item"><span class="trust-icon">🇧🇷</span>Suporte em português</span>
+  </div>
+
+  <div class="hero-metrics">
+    <div class="hm">
+      <div class="hm-val">50+</div>
+      <div class="hm-lbl">Projetos entregues</div>
+    </div>
+    <div class="hm">
+      <div class="hm-val">99.9%</div>
+      <div class="hm-lbl">Uptime garantido</div>
+    </div>
+    <div class="hm">
+      <div class="hm-val">&lt;1s</div>
+      <div class="hm-lbl">Tempo de carregamento</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── LOGOS ─────────────────────────────────────────────── -->
+<div class="logos-strip">
+  <div class="logos-strip-inner">
+    <span class="logos-label">Tecnologias que usamos</span>
+    <span class="logo-pill">⚡ Next.js</span>
+    <span class="logo-pill">☁️ Cloudflare</span>
+    <span class="logo-pill">🔧 Vercel</span>
+    <span class="logo-pill">🔒 SSL/TLS</span>
+    <span class="logo-pill">📦 CDN Global</span>
+    <span class="logo-pill">🔍 SEO Core</span>
+  </div>
+</div>
+
+<!-- ─── SERVICES ──────────────────────────────────────────── -->
+<div class="services-bg section-full" id="servicos">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="tag">Serviços</div>
+      <h2 class="title">Soluções digitais <span class="grad">completas</span></h2>
+      <p class="section-sub">Do site institucional à landing page de alta conversão — desenvolvo com código limpo, performance real e hospedagem cloud incluída.</p>
+    </div>
+    <div class="services-grid reveal">
+
+      <div class="srv s1 featured">
+        <div class="srv-badge">Principal</div>
+        <div class="srv-icon">🌐</div>
+        <h3>Desenvolvimento Web</h3>
+        <p>Sites institucionais, empresariais e portfólios modernos com design exclusivo, otimização técnica e infraestrutura cloud pronta para escalar.</p>
+        <div class="srv-list">
+          <div class="srv-item">Sites institucionais e empresariais</div>
+          <div class="srv-item">Portfólios e páginas de captura</div>
+          <div class="srv-item">Design exclusivo, responsivo e acessível</div>
+          <div class="srv-item">SEO técnico on-page incluso</div>
+          <div class="srv-item">Integração WhatsApp, formulários e CRM</div>
+          <div class="srv-item">Hospedagem cloud com SSL e CDN</div>
+        </div>
+      </div>
+
+      <div class="srv s2">
+        <div class="srv-icon">☁️</div>
+        <h3>Infraestrutura Digital</h3>
+        <p>Hospedagem cloud gerenciada, domínio, SSL, CDN e monitoramento. Seu site sempre rápido, seguro e disponível — sem dor de cabeça.</p>
+        <div class="srv-list">
+          <div class="srv-item">Hospedagem cloud gerenciada</div>
+          <div class="srv-item">SSL/TLS e segurança avançada</div>
+          <div class="srv-item">CDN global para alta velocidade</div>
+          <div class="srv-item">Monitoramento e alertas 24/7</div>
+          <div class="srv-item">Backups automáticos diários</div>
+          <div class="srv-item">Suporte técnico especializado</div>
+        </div>
+      </div>
+
+      <div class="srv s3">
+        <div class="srv-icon">📈</div>
+        <h3>Marketing Digital</h3>
+        <p>Tráfego pago estratégico como complemento à sua presença digital. Campanhas no Meta Ads e Google Ads para atrair o público certo.</p>
+        <div class="srv-list">
+          <div class="srv-item">Meta Ads (Facebook & Instagram)</div>
+          <div class="srv-item">Google Ads (Search & Display)</div>
+          <div class="srv-item">Landing pages de conversão</div>
+          <div class="srv-item">Relatório mensal de resultados</div>
+          <div class="srv-item">Otimização contínua de campanhas</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ─── CLOUD ─────────────────────────────────────────────── -->
+<div class="cloud-bg section-full" id="cloud">
+  <div class="section-inner section">
+    <div class="cloud-layout">
+      <div class="reveal">
+        <div class="tag">Infraestrutura</div>
+        <h2 class="title">Seu site na <span class="grad">nuvem</span>,<br>rápido e seguro</h2>
+        <p style="font-size:15px;color:var(--white3);line-height:1.7;margin-bottom:8px">Todos os sites que desenvolvo são hospedados em infraestrutura cloud moderna — não em servidores compartilhados lentos.</p>
+        <p style="font-size:14px;color:var(--white4);line-height:1.7;margin-bottom:0">O resultado: carregamento ultrarrápido, disponibilidade global e segurança de nível enterprise para o seu negócio.</p>
+        <div class="cloud-features">
+          <div class="cf"><div class="cf-icon">🔒</div><div class="cf-name">SSL Incluso</div><div class="cf-desc">Certificado HTTPS ativo e renovado automaticamente.</div></div>
+          <div class="cf"><div class="cf-icon">⚡</div><div class="cf-name">Ultra Rápido</div><div class="cf-desc">Carregamento abaixo de 1 segundo com CDN global.</div></div>
+          <div class="cf"><div class="cf-icon">🌍</div><div class="cf-name">CDN Global</div><div class="cf-desc">Conteúdo entregue do servidor mais próximo do visitante.</div></div>
+          <div class="cf"><div class="cf-icon">📊</div><div class="cf-name">Monitoramento</div><div class="cf-desc">Uptime 99.9% com alertas em tempo real.</div></div>
+          <div class="cf"><div class="cf-icon">🛡️</div><div class="cf-name">Firewall Web</div><div class="cf-desc">Proteção contra ataques e acessos maliciosos.</div></div>
+          <div class="cf"><div class="cf-icon">💾</div><div class="cf-name">Backups</div><div class="cf-desc">Cópias automáticas diárias com restauração fácil.</div></div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="cloud-visual">
+          <div class="cv-header">
+            <div class="cv-dot" style="background:#EF4444"></div>
+            <div class="cv-dot" style="background:#F59E0B;margin-left:4px"></div>
+            <div class="cv-dot" style="background:#10B981;margin-left:4px"></div>
+            <span style="font-size:11px;color:var(--white3);font-family:'JetBrains Mono',monospace;margin-left:12px">traderblk.com.br</span>
+            <span class="cv-status">Online</span>
+          </div>
+          <div class="cv-metric">
+            <span class="cv-metric-label">Performance Score</span>
+            <span class="cv-metric-val good">98 / 100</span>
+          </div>
+          <div class="cv-bar"><div class="cv-bar-fill" data-w="98" style="width:0%;background:linear-gradient(90deg,var(--green),#34D399)"></div></div>
+          <div class="cv-metric" style="margin-top:12px">
+            <span class="cv-metric-label">Tempo de resposta</span>
+            <span class="cv-metric-val blue">0.4s</span>
+          </div>
+          <div class="cv-bar"><div class="cv-bar-fill" data-w="95" style="width:0%;background:linear-gradient(90deg,var(--blue),var(--cyan))"></div></div>
+          <div class="cv-metric" style="margin-top:12px">
+            <span class="cv-metric-label">Uptime (30 dias)</span>
+            <span class="cv-metric-val violet">99.97%</span>
+          </div>
+          <div class="cv-bar"><div class="cv-bar-fill" data-w="100" style="width:0%;background:linear-gradient(90deg,var(--violet),var(--blue2))"></div></div>
+          <div class="cv-metric" style="margin-top:12px">
+            <span class="cv-metric-label">SSL Status</span>
+            <span class="cv-metric-val good">✓ Ativo</span>
+          </div>
+          <div class="cv-metric">
+            <span class="cv-metric-label">CDN Nodes</span>
+            <span class="cv-metric-val blue">200+ global</span>
+          </div>
+          <div class="cv-metric">
+            <span class="cv-metric-label">Último backup</span>
+            <span class="cv-metric-val" style="color:var(--white3)">há 2h</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── HOW IT WORKS ──────────────────────────────────────── -->
+<div class="how-bg section-full" id="processo">
+  <div class="section-inner section">
+    <div class="reveal">
+      <div class="tag">Processo</div>
+      <h2 class="title">Do briefing ao site no ar<br><span class="grad">em 24-72 horas</span></h2>
+      <p class="section-sub">Processo direto e sem burocracia. Você participa de cada etapa e aprova antes de publicar.</p>
+    </div>
+    <div class="how-steps reveal">
+      <div class="how-step">
+        <div class="hs-num">01 — INÍCIO</div>
+        <div class="hs-icon">💬</div>
+        <h4>Briefing</h4>
+        <p>Conversa de 30 minutos para entender seu negócio, público, objetivos e referências visuais.</p>
+      </div>
+      <div class="how-step">
+        <div class="hs-num">02 — DESIGN</div>
+        <div class="hs-icon">🎨</div>
+        <h4>Prototipagem</h4>
+        <p>Desenvolvo o layout e apresentamos para aprovação. Ajustes ilimitados nessa etapa.</p>
+      </div>
+      <div class="how-step">
+        <div class="hs-num">03 — BUILD</div>
+        <div class="hs-icon">⚙️</div>
+        <h4>Desenvolvimento</h4>
+        <p>Codificamos com performance, SEO técnico e responsividade. Você acompanha em preview.</p>
+      </div>
+      <div class="how-step">
+        <div class="hs-num">04 — LAUNCH</div>
+        <div class="hs-icon">🚀</div>
+        <h4>Publicação</h4>
+        <p>Site no ar com SSL, CDN e monitoramento ativos. Suporte incluso no primeiro mês.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── METRICS STRIP ─────────────────────────────────────── -->
+<div class="metrics-strip">
+  <div class="metrics-inner">
+    <div class="metric-cell reveal">
+      <div class="mc-val">50+</div>
+      <div class="mc-label">Sites entregues com sucesso</div>
+    </div>
+    <div class="metric-cell reveal">
+      <div class="mc-val">&lt;1s</div>
+      <div class="mc-label">Tempo médio de carregamento</div>
+    </div>
+    <div class="metric-cell reveal">
+      <div class="mc-val">99.9%</div>
+      <div class="mc-label">Uptime garantido em cloud</div>
+    </div>
+    <div class="metric-cell reveal">
+      <div class="mc-val">24-72h</div>
+      <div class="mc-label">Prazo de entrega landing page</div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── DIFFERENTIALS ─────────────────────────────────────── -->
+<div class="section-full" style="background:var(--bg2);border-top:1px solid var(--border)" id="diferenciais">
+  <div class="section-inner section">
+    <div class="reveal">
+      <div class="tag">Diferenciais</div>
+      <h2 class="title">Por que trabalhar <span class="grad">comigo?</span>?</h2>
+      <p class="section-sub">Não entrego apenas um site. Entrego uma solução digital completa — com a infra que seu negócio merece.</p>
+    </div>
+    <div class="diff-grid reveal">
+      <div class="diff"><div class="diff-icon">⚡</div><h4>Entrega Rápida</h4><p>Landing pages em 24-72 horas. Sites completos em até 15 dias úteis. Sem atraso, sem desculpa.</p></div>
+      <div class="diff"><div class="diff-icon">🎨</div><h4>Design Premium</h4><p>Interfaces modernas e exclusivas. Sem templates genéricos — cada projeto começa do zero.</p></div>
+      <div class="diff"><div class="diff-icon">📱</div><h4>Mobile First</h4><p>100% responsivo e otimizado para todos os dispositivos. Testado em telas de todos os tamanhos.</p></div>
+      <div class="diff"><div class="diff-icon">🔍</div><h4>SEO Técnico</h4><p>Estrutura semântica, meta tags, sitemap e performance — tudo configurado para ranquear.</p></div>
+      <div class="diff"><div class="diff-icon">☁️</div><h4>Cloud Incluso</h4><p>Hospedagem cloud, SSL e CDN incluídos no plano. Sem custos extras escondidos.</p></div>
+      <div class="diff"><div class="diff-icon">🛠️</div><h4>Suporte Real</h4><p>Atendimento por WhatsApp com profissional que conhece o seu projeto. Resposta em horas.</p></div>
+      <div class="diff"><div class="diff-icon">📊</div><h4>Focado em Conversão</h4><p>Cada elemento pensado para transformar visitantes em contatos, clientes e vendas.</p></div>
+      <div class="diff"><div class="diff-icon">🔗</div><h4>Integrações</h4><p>WhatsApp, formulários, Google Analytics, Pixel Meta, CRM e ferramentas de automação.</p></div>
+      <div class="diff"><div class="diff-icon">🏆</div><h4>Solução Completa</h4><p>Site + infra + tráfego pago em um só lugar. Você não precisa gerenciar múltiplos fornecedores.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── PLANS ──────────────────────────────────────────────── -->
+<div class="plans-bg section-full" id="planos">
+  <div class="section-inner section">
+    <div class="reveal">
+      <div class="tag">Planos</div>
+      <h2 class="title">Preços <span class="grad">transparentes</span></h2>
+      <p class="section-sub">Sem taxa de setup, sem surpresas no boleto. Você sabe exatamente o que está contratando.</p>
+    </div>
+    <div class="plans-grid reveal">
+
+      <div class="plan-card">
+        <div class="plan-tier">Landing Page</div>
+        <div class="plan-price"><sup>R$</sup>397<sub>,90</sub></div>
+        <div class="plan-billing">pagamento único · entrega 24-72 horas</div>
+        <div class="plan-hr"></div>
+        <div class="plan-desc">Página de alta conversão para capturar leads, divulgar serviços ou lançar produtos. Ideal para começar com profissionalismo.</div>
+        <div class="plan-features">
+          <div class="pf on"><div class="pfck">✓</div>Design exclusivo e responsivo</div>
+          <div class="pf on"><div class="pfck">✓</div>1 página otimizada para conversão</div>
+          <div class="pf on"><div class="pfck">✓</div>SEO técnico básico incluso</div>
+          <div class="pf on"><div class="pfck">✓</div>Integração WhatsApp</div>
+          <div class="pf on"><div class="pfck">✓</div>Entregue em até 24-72 horas</div>
+          <div class="pf on"><div class="pfck">✓</div>SSL e hospedagem grátis</div>
+          <div class="pf on"><div class="pfck">✓</div>Domínio gratuito no primeiro ano </div>
+          <div class="pf off"><div class="pfck"></div>Páginas internas múltiplas</div>
+          <div class="pf off"><div class="pfck"></div>E-mail comercial grátis</div>
+          <div class="pf off"><div class="pfck"></div>Painel de administração</div>
+        </div>
+        <a href="https://wa.me/558896848924?text=Quero contratar a Landing Page da Traderblk." class="plan-btn" target="_blank">Criar minha landing page</a>
+      </div>
+
+      <div class="plan-card pop">
+        <div class="plan-pop-badge">Mais popular</div>
+        <div class="plan-tier">Site Profissional</div>
+        <div class="plan-price"><sup>R$</sup>1.297</div>
+        <div class="plan-billing">pagamento único · entrega 15 dias úteis</div>
+        <div class="plan-hr"></div>
+        <div class="plan-desc">Site institucional completo com múltiplas páginas, blog, SEO avançado e hospedagem cloud por 1 ano incluída.</div>
+        <div class="plan-features">
+          <div class="pf on"><div class="pfck">✓</div>Tudo da Landing Page</div>
+          <div class="pf on"><div class="pfck">✓</div>Até 6 páginas internas</div>
+          <div class="pf on"><div class="pfck">✓</div>SEO avançado e sitemap</div>
+          <div class="pf on"><div class="pfck">✓</div>Google Analytics configurado</div>
+          <div class="pf on"><div class="pfck">✓</div>Hospedagem cloud 1 ano inclusa</div>
+          <div class="pf on"><div class="pfck">✓</div>SSL + CDN + Backups automáticos</div>
+          <div class="pf on"><div class="pfck">✓</div>Suporte 30 dias pós-entrega</div>
+          <div class="pf on"><div class="pfck">✓</div>1 revisão de design incluída</div>
+        </div>
+        <a href="https://wa.me/558896848924?text=Quero contratar o Site Profissional da Traderblk." class="plan-btn" target="_blank">Criar meu site profissional</a>
+      </div>
+
+      <div class="plan-card">
+        <div class="plan-tier">Tráfego Pago</div>
+        <div class="plan-price"><sup>R$</sup>799<sub>/mês</sub></div>
+        <div class="plan-billing">gestão mensal · 30 dias de teste</div>
+        <div class="plan-hr"></div>
+        <div class="plan-desc">Gestão profissional de campanhas no Meta Ads e Google Ads para atrair clientes qualificados para o seu site ou landing page.</div>
+        <div class="plan-features">
+          <div class="pf on"><div class="pfck">✓</div>Configuração completa de campanhas</div>
+          <div class="pf on"><div class="pfck">✓</div>Até 3 criativos e copies/mês</div>
+          <div class="pf on"><div class="pfck">✓</div>Otimização semanal</div>
+          <div class="pf on"><div class="pfck">✓</div>Relatório mensal de resultados</div>
+          <div class="pf on"><div class="pfck">✓</div>30 dias sem fidelidade</div>
+          <div class="pf off"><div class="pfck"></div>Verba de anúncios (à parte)</div>
+          <div class="pf off"><div class="pfck"></div>2ª campanha simultânea</div>
+        </div>
+        <a href="https://wa.me/558896848924?text=Quero contratar gestão de tráfego pago da Traderblk." class="plan-btn" target="_blank">Testar por 30 dias</a>
+        <div style="font-size:11px;color:var(--white4);text-align:center;margin-top:12px">* Verba de anúncios paga diretamente à Meta/Google.</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ─── TESTIMONIALS ──────────────────────────────────────── -->
+<div class="testi-bg section-full" id="depoimentos">
+  <div class="section-inner section">
+    <div class="reveal">
+      <div class="tag">Depoimentos</div>
+      <h2 class="title">Clientes que <span class="grad">cresceram</span></h2>
+      <p class="section-sub">Resultados reais de empresas reais. Sem depoimento fabricado.</p>
+    </div>
+    <div class="testi-grid reveal">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"O site ficou exatamente como eu imaginei — moderno, rápido e profissional. Em menos de uma semana no ar já recebi orçamentos pelo formulário. Melhor investimento que fiz."</div>
+        <div class="testi-who"><div class="testi-av">CA</div><div><div class="testi-name">Camila Araújo</div><div class="testi-role">Clínica de Estética · Fortaleza, CE</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"Precisava de uma landing page rápida para um lançamento e entregaram em menos de 48 horas. Qualidade absurda para o prazo. A página está convertendo muito bem."</div>
+        <div class="testi-who"><div class="testi-av">RM</div><div><div class="testi-name">Rodrigo Matos</div><div class="testi-role">Consultoria Empresarial · São Paulo, SP</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"Além do site, contratei o tráfego pago também. A combinação funcionou muito bem — o site converte os visitantes e os anúncios trazem o público certo. Recomendo."</div>
+        <div class="testi-who"><div class="testi-av">DR</div><div><div class="testi-name">Dr. Rafael Mendes</div><div class="testi-role">Advogado Trabalhista · Juazeiro do Norte, CE</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── CASES ──────────────────────────────────────────────── -->
+<div class="cases-bg section-full" id="cases">
+  <div class="section-inner section">
+    <div class="reveal">
+      <div class="tag">Cases</div>
+      <h2 class="title">Projetos que <span class="grad">entregamos</span></h2>
+      <p class="section-sub">Sites reais, empresas reais. Cada projeto com propósito, performance e identidade própria.</p>
+    </div>
+
+    <div class="cases-grid reveal">
+
+      <!-- Case 1 -->
+      <div class="case-card">
+        <div class="case-preview">
+          <div class="case-browser-chrome">
+            <div class="case-browser-dots">
+              <div class="case-browser-dot" style="background:#EF4444"></div>
+              <div class="case-browser-dot" style="background:#F59E0B"></div>
+              <div class="case-browser-dot" style="background:#10B981"></div>
+            </div>
+            <div class="case-browser-url">gocota.com.br</div>
+          </div>
+          <div class="case-preview-inner" style="background:linear-gradient(160deg,#0a0a14 0%,#0f0a1a 100%);padding:16px">
+            <div class="case-preview-bar" style="background:linear-gradient(90deg,#8B5CF6,#EC4899)"></div>
+            <div class="mock-lines" style="padding:8px 0">
+              <div class="mock-line hero" style="background:linear-gradient(90deg,rgba(139,92,246,.3),rgba(236,72,153,.2))"></div>
+              <div class="mock-line med"></div>
+              <div class="mock-line short"></div>
+              <div style="display:flex;gap:8px;margin-top:4px">
+                <div class="mock-btn" style="background:rgba(139,92,246,.4)"></div>
+                <div class="mock-btn" style="background:rgba(255,255,255,.06);width:60px"></div>
+              </div>
+            </div>
+            <div class="mock-img" style="background:linear-gradient(135deg,rgba(139,92,246,.12),rgba(236,72,153,.08))"></div>
+          </div>
+        </div>
+        <div class="case-body">
+          <div class="case-category" style="color:#A78BFA">
+            <span style="width:6px;height:6px;border-radius:50%;background:#A78BFA"></span>
+            Reabilitação de crédito
+          </div>
+          <div class="case-name">GoCota A C Ltda</div>
+          <div class="case-desc">Landing page de alta conversão para reabilitação de crédito avançada. Foco em agendamento online e apresentação de procedimentos.</div>
+          <div class="case-meta">
+            <span class="case-pill">Landing Page</span>
+            <span class="case-pill">Cloud</span>
+            <span class="case-pill">SEO</span>
+          </div>
+        </div>
+        <div class="case-footer">
+          <a href="https://gocota.com.br" target="_blank" class="case-link">
+            gocota.com.br
+            <span class="case-link-arrow">↗</span>
+          </a>
+          <span class="case-status">Online</span>
+        </div>
+      </div>
+
+      <!-- Case 2 -->
+      <div class="case-card">
+        <div class="case-preview">
+          <div class="case-browser-chrome">
+            <div class="case-browser-dots">
+              <div class="case-browser-dot" style="background:#EF4444"></div>
+              <div class="case-browser-dot" style="background:#F59E0B"></div>
+              <div class="case-browser-dot" style="background:#10B981"></div>
+            </div>
+            <div class="case-browser-url">token360.com.br</div>
+          </div>
+          <div class="case-preview-inner" style="background:linear-gradient(160deg,#080c10 0%,#0a0f18 100%);padding:16px">
+            <div class="case-preview-bar" style="background:linear-gradient(90deg,#3B82F6,#06B6D4)"></div>
+            <div class="mock-lines" style="padding:8px 0">
+              <div class="mock-line" style="height:10px;width:40%;background:rgba(255,255,255,.08);margin-bottom:8px"></div>
+              <div class="mock-line hero" style="background:linear-gradient(90deg,rgba(59,130,246,.3),rgba(6,182,212,.15))"></div>
+              <div class="mock-line full"></div>
+              <div class="mock-line med"></div>
+              <div style="display:flex;gap:8px;margin-top:4px">
+                <div class="mock-btn" style="background:rgba(59,130,246,.4)"></div>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-top:4px">
+              <div style="height:40px;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.15);border-radius:4px"></div>
+              <div style="height:40px;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.15);border-radius:4px"></div>
+              <div style="height:40px;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.15);border-radius:4px"></div>
+            </div>
+          </div>
+        </div>
+        <div class="case-body">
+          <div class="case-category" style="color:var(--blue2)">
+            <span style="width:6px;height:6px;border-radius:50%;background:var(--blue2)"></span>
+            Reabilitação de crédito
+          </div>
+          <div class="case-name">Token360 A A Ltda</div>
+          <div class="case-desc">Site institucional completo para empresa de reabilitação de crédito. Design sóbrio, credibilidade e formulário de captação integrado.</div>
+          <div class="case-meta">
+            <span class="case-pill">Site Institucional</span>
+            <span class="case-pill">6 páginas</span>
+            <span class="case-pill">Cloud</span>
+          </div>
+        </div>
+        <div class="case-footer">
+          <a href="https://token360.com.br" target="_blank" class="case-link">
+            token360.com.br
+            <span class="case-link-arrow">↗</span>
+          </a>
+          <span class="case-status">Online</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── FAQ ───────────────────────────────────────────────── -->
+<div class="faq-bg section-full" id="faq">
+  <div class="section-inner section">
+    <div class="faq-layout">
+      <div class="faq-left reveal">
+        <div class="tag">Dúvidas</div>
+        <h2>Perguntas<br>frequentes</h2>
+        <p>Não encontrou o que procura? Manda mensagem no WhatsApp — respondo em até 2 horas nos dias úteis.</p>
+        <a href="https://wa.me/558896848924" class="btn-primary" target="_blank">Falar agora</a>
+      </div>
+      <div class="faq-items reveal">
+        <div class="faq-item open">
+          <div class="faq-q" onclick="faqToggle(this)">O que está incluso na hospedagem cloud? <span class="faq-icon">+</span></div>
+          <div class="faq-a"><p>A hospedagem cloud inclui: certificado SSL ativo, CDN global, backups automáticos diários, monitoramento de uptime e firewall básico. Tudo gerenciado por nós — você não precisa se preocupar com nada técnico.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="faqToggle(this)">Em quanto tempo meu site fica pronto? <span class="faq-icon">+</span></div>
+          <div class="faq-a"><p>Landing pages simples são entregues em 24-72 horas após aprovação do briefing. Sites profissionais com múltiplas páginas ficam prontos em até 15 dias úteis. O prazo começa a contar quando você nos envia os materiais (textos, logo e referências).</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="faqToggle(this)">Posso pedir alterações depois da entrega? <span class="faq-icon">+</span></div>
+          <div class="faq-a"><p>Sim. Todos os planos incluem 1 mês de suporte pós-entrega para ajustes de texto, imagem e pequenas alterações de layout. Reformulações maiores são orçadas separadamente.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="faqToggle(this)">Atende clientes fora de Juazeiro do Norte? <span class="faq-icon">+</span></div>
+          <div class="faq-a"><p>Sim, atendo todo o Brasil de forma 100% remota. Reuniões por videoconferência, aprovações por WhatsApp e entrega digital. Já trabalhamos com clientes em São Paulo, Fortaleza, Recife e várias outras cidades.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="faqToggle(this)">Preciso contratar tráfego pago junto com o site? <span class="faq-icon">+</span></div>
+          <div class="faq-a"><p>Não. Você pode contratar apenas o desenvolvimento do site e depois decidir se quer adicionar tráfego pago. Os serviços são independentes — mas funcionam muito melhor juntos.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="faqToggle(this)">Como funciona o pagamento? <span class="faq-icon">+</span></div>
+          <div class="faq-a"><p>Para sites e landing pages, o pagamento é feito em 2x: 50% na aprovação do briefing e 50% na entrega. Para tráfego pago, o pagamento é mensal. Aceitamos Pix, transferência e cartão de crédito.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── CTA ───────────────────────────────────────────────── -->
+<div class="cta-bg section-full" id="contato">
+  <div class="section-inner section">
+    <div class="cta-inner">
+      <div class="tag" style="justify-content:center;margin-bottom:20px">Pronto para começar?</div>
+      <h2 class="reveal"><span class="grad">Seu próximo site</span><br>começa aqui.</h2>
+      <p class="reveal">Fale comomigo. Em menos de 5 minutos você entende como funciona e recebe um orçamento para o seu projeto.</p>
+      <div class="reveal">
+        <a href="https://wa.me/558896848924?text=Olá! Quero saber mais sobre desenvolvimento de sites da Traderblk." class="btn-wa" target="_blank">
+          Solicitar orçamento agora
+        </a>
+        <div class="cta-note">Resposta em até 2 horas · Sem compromisso · Atendimento 100% remoto</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── FOOTER ────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <a href="#inicio" class="footer-logo-block">
+        <!--
+          ╔══════════════════════════════════════════════════════╗
+          ║  LOGO SVG — FOOTER                                   ║
+          ║  Mesma logo do nav. Cole o SVG real aqui dentro      ║
+          ║  da div .nav-logo-mark abaixo.                       ║
+          ╚══════════════════════════════════════════════════════╝
+        -->
+        <div class="nav-logo-mark">
+          <img src="/logos/logo2.svg" alt="Traderblk" />
+        </div>
+        <span class="nav-logo-name">Traderblk<span></span></span>
+      </a>
+      <p class="footer-tagline">Desenvolvo sites profissionais com infraestrutura cloud, alta performance e SEO técnico para empresas que querem crescer.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Serviços</div>
+      <div class="footer-col">
+        <a href="#servicos">Desenvolvimento Web</a>
+        <a href="#servicos">Landing Pages</a>
+        <a href="#cloud">Infraestrutura Cloud</a>
+        <a href="#servicos">Tráfego Pago</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Planos</div>
+      <div class="footer-col">
+        <a href="#planos">Landing Page — R$397</a>
+        <a href="#planos">Site Profissional — R$1.297</a>
+        <a href="#planos">Tráfego Pago — R$799/mês</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Contato</div>
+      <div class="footer-col">
+        <a href="https://wa.me/558896848924" target="_blank">WhatsApp</a>
+        <a href="mailto:contato@traderblk.com.br">contato@traderblk.com.br</a>
+        <a href="#faq">FAQ</a>
+        <a href="#depoimentos">Depoimentos</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 <em>Traderblk</em> · Juazeiro do Norte, CE · Todos os direitos reservados</div>
+    <div class="footer-socials">
+      <a href="#" class="social">ig</a>
+      <a href="#" class="social">in</a>
+      <a href="#" class="social">yt</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ─── WHATSAPP WIDGET ────────────────────────────────────── -->
+<div class="wa-widget" id="waWidget">
+
+  <div class="wa-bubble" id="waBubble">
+    <div class="wa-bubble-header">
+      <div class="wa-avatar">
+        <img src="/logos/perfil.svg" alt="Traderblk">
+        <div class="wa-online-dot"></div>
+      </div>
+      <div>
+        <div class="wa-brand">Traderblk</div>
+        <div class="wa-status">Online agora</div>
+      </div>
+      <button class="wa-close" onclick="closeWaBubble()" aria-label="Fechar">✕</button>
+    </div>
+    <p class="wa-message">Oi! Posso te ajudar com seu próximo site? 👋</p>
+    <a href="https://wa.me/558896848924?text=Olá! Vi o site e quero saber mais sobre os serviços da Traderblk." target="_blank" class="wa-cta">
+      <img src="/logos/WhatsApp.svg" alt="WhatsApp" style="width:14px;height:14px;display:block;flex-shrink:0"> Falar no WhatsApp
+    </a>
+  </div>
+
+  <a href="https://wa.me/558896848924?text=Olá! Vi o site e quero saber mais sobre os serviços da Traderblk." target="_blank" class="wa-fab" id="waFab" style="display:none" aria-label="WhatsApp">
+    <img src="/logos/WhatsApp.svg" alt="WhatsApp" style="width:22px;height:22px;display:block">
+  </a>
+
+</div>
+
+<!-- ─── SCRIPTS ───────────────────────────────────────────── -->
+<script>
+// Cursor
+const cur=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+(function anim(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(anim)})();
+document.querySelectorAll('a,button,.srv,.diff,.testi-card,.plan-card,.cf,.how-step').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.width='14px';cur.style.height='14px';ring.style.width='48px';ring.style.height='48px'});
+  el.addEventListener('mouseleave',()=>{cur.style.width='6px';cur.style.height='6px';ring.style.width='28px';ring.style.height='28px'});
+});
+
+// Nav scroll
+window.addEventListener('scroll',()=>document.getElementById('mainNav').classList.toggle('scrolled',scrollY>60));
+
+// ── Hamburguer mobile ──
+const hamburger=document.getElementById('navHamburger');
+const mobileMenu=document.getElementById('navMobileMenu');
+
+hamburger.addEventListener('click',()=>{
+  const isOpen=mobileMenu.classList.contains('open');
+  mobileMenu.classList.toggle('open',!isOpen);
+  hamburger.classList.toggle('open',!isOpen);
+});
+
+function closeMobileMenu(){
+  mobileMenu.classList.remove('open');
+  hamburger.classList.remove('open');
+}
+
+// ─── THEME TOGGLE ─────────────────────────────────────────
+const html=document.documentElement;
+const toggleBtn=document.getElementById('themeToggle');
+
+// Lê preferência salva ou usa escuro como padrão
+const savedTheme=localStorage.getItem('traderblk-theme');
+if(savedTheme==='light') html.setAttribute('data-theme','light');
+
+toggleBtn.addEventListener('click',()=>{
+  const isLight=html.getAttribute('data-theme')==='light';
+  if(isLight){
+    html.removeAttribute('data-theme');
+    localStorage.setItem('traderblk-theme','dark');
+  } else {
+    html.setAttribute('data-theme','light');
+    localStorage.setItem('traderblk-theme','light');
+  }
+});
+
+// FAQ
+function faqToggle(el){
+  const item=el.closest('.faq-item'),isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+// Reveal on scroll
+const revObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');revObs.unobserve(e.target)}});
+},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(r=>revObs.observe(r));
+
+// Cloud bars animation
+const barObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.style.width=e.target.getAttribute('data-w')+'%';
+      barObs.unobserve(e.target);
+    }
+  });
+},{threshold:.5});
+document.querySelectorAll('.cv-bar-fill').forEach(b=>barObs.observe(b));
+
+// WhatsApp widget
+const waBubble=document.getElementById('waBubble');
+const waFab=document.getElementById('waFab');
+
+// Abre automaticamente 2.5s após carregar
+setTimeout(()=>{
+  waBubble.style.display='block';
+},2500);
+
+function closeWaBubble(){
+  waBubble.classList.add('hiding');
+  setTimeout(()=>{
+    waBubble.style.display='none';
+    waBubble.classList.remove('hiding');
+    waFab.style.display='flex';
+  },250);
+}
+
+// Cursor hover no widget
+document.querySelectorAll('.wa-bubble,.wa-fab,.wa-cta,.wa-close').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.width='14px';cur.style.height='14px';ring.style.width='48px';ring.style.height='48px'});
+  el.addEventListener('mouseleave',()=>{cur.style.width='6px';cur.style.height='6px';ring.style.width='28px';ring.style.height='28px'});
+});
+</script>
+</body>
+</html>
